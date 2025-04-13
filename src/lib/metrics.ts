@@ -1,6 +1,6 @@
 
 import { format, parseISO, startOfMonth, endOfMonth, isValid, isAfter, isBefore, subMonths } from 'date-fns';
-import { ChartDataPoint, ChartViewMode, MetricValue } from '@/types/metrics';
+import { ChartDataPoint, ChartViewMode, MetricValue, MetricColor } from '@/types/metrics';
 
 // Process metric values for charts based on view mode
 export const processMetricValues = (
@@ -68,7 +68,7 @@ export const formatDateForDisplay = (date: Date): string => {
 };
 
 // Get color class based on metric name
-export const getMetricColorClass = (metricName: string): string => {
+export const getMetricColorClass = (metricName: string): MetricColor => {
   const name = metricName.toLowerCase();
   
   if (name.includes('heart') || name.includes('pulse') || name.includes('bpm')) {
